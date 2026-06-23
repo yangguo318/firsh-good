@@ -1,0 +1,20 @@
+.container {
+    width: 454px;
+    height: 454px;
+    background-color: #0a1628;
+}
+
+.bg-canvas {
+    width: 454px;
+    height: 454px;
+}
+
+.fish-canvas {
+    width: 454px;
+    height: 454px;
+}
+
+.clock-canvas {
+    width: 454px;
+    height: 454px;
+}

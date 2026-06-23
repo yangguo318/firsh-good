@@ -1,0 +1,5 @@
+<stack class="container">
+    <canvas id="bgCanvas" class="bg-canvas"></canvas>
+    <canvas id="fishCanvas" class="fish-canvas"></canvas>
+    <canvas id="clockCanvas" class="clock-canvas"></canvas>
+</stack>
