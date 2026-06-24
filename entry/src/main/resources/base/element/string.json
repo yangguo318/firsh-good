@@ -2,15 +2,23 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "西湖曲院风荷金鱼表盘"
+      "value": "花海观鱼表盘"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "西湖曲院风荷金鱼表盘"
+      "value": "花海观鱼表盘"
     },
     {
       "name": "EntryAbility_label",
-      "value": "曲院风荷"
+      "value": "花海观鱼"
+    },
+    {
+      "name": "watchface_desc",
+      "value": "花海观鱼 — 俯视池塘，锦鲤在花海中悠然游弋"
+    },
+    {
+      "name": "watchface_label",
+      "value": "花海观鱼"
     }
   ]
 }

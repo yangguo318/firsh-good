@@ -3,6 +3,30 @@
     {
       "name": "start_window_background",
       "value": "#0a1628"
+    },
+    {
+      "name": "water_deep",
+      "value": "#0d2e3a"
+    },
+    {
+      "name": "water_surface",
+      "value": "#1a4a5a"
+    },
+    {
+      "name": "petal_pink",
+      "value": "#ffb7c5"
+    },
+    {
+      "name": "koi_orange",
+      "value": "#ff6b35"
+    },
+    {
+      "name": "koi_red",
+      "value": "#dc143c"
+    },
+    {
+      "name": "koi_gold",
+      "value": "#ffa500"
     }
   ]
 }
