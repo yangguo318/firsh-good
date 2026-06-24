@@ -1,3 +1,5 @@
+import display from '@ohos.display';
+
 interface FishState {
   x: number;
   y: number;
@@ -14,13 +16,28 @@ struct Index {
   private W: number = 466;
   private H: number = 466;
 
-  private fishA: FishState = { x: 100, y: 280, dir: 1, angle: 0 };
-  private fishB: FishState = { x: 300, y: 200, dir: -1, angle: 0 };
-  private fishC: FishState = { x: 200, y: 320, dir: 1, angle: 0 };
+  private fishA: FishState = { x: 0, y: 0, dir: 1, angle: 0 };
+  private fishB: FishState = { x: 0, y: 0, dir: -1, angle: 0 };
+  private fishC: FishState = { x: 0, y: 0, dir: 1, angle: 0 };
 
   private timer: number = 0;
 
   aboutToAppear() {
+    try {
+      const disp = display.getDefaultDisplaySync();
+      this.W = disp.width;
+      this.H = disp.height;
+    } catch (e) {
+      // fallback to default 466x466
+    }
+
+    this.fishA.x = this.W * 0.214;
+    this.fishA.y = this.H * 0.599;
+    this.fishB.x = this.W * 0.644;
+    this.fishB.y = this.H * 0.429;
+    this.fishC.x = this.W * 0.429;
+    this.fishC.y = this.H * 0.687;
+
     this.timer = setInterval(() => {
       this.updateFishPositions();
       this.renderFrame();
