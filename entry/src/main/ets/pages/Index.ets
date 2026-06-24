@@ -1,4 +1,5 @@
-import { RenderEngine, ClockStyle } from '../render/RenderEngine';
+import { RenderEngine } from '../render/RenderEngine';
+import { InteractionManager } from '../interaction/InteractionManager';
 
 @Entry
 @Component
@@ -6,11 +7,13 @@ struct Index {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private ctx: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private engine: RenderEngine = new RenderEngine();
+  private interaction: InteractionManager | null = null;
   private touchStartX: number = 0;
   private touchStartY: number = 0;
 
   aboutToAppear() {
     this.engine.init(this.ctx);
+    this.interaction = new InteractionManager(this.engine);
     this.engine.start();
   }
 
@@ -37,23 +40,12 @@ struct Index {
             const dy = event.changedTouches[0].y - this.touchStartY;
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < 20) {
-              this.handleTap();
+              this.interaction?.onTap();
             }
           }
         })
     }
     .width('100%')
     .height('100%')
-  }
-
-  private handleTap(): void {
-    const current = this.engine.getClockStyle();
-    if (current === ClockStyle.Digital) {
-      this.engine.setClockStyle(ClockStyle.Minimal);
-    } else if (current === ClockStyle.Minimal) {
-      this.engine.setClockStyle(ClockStyle.Hidden);
-    } else {
-      this.engine.setClockStyle(ClockStyle.Digital);
-    }
   }
 }

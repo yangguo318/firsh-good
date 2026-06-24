@@ -8,4 +8,5 @@ export class PetalState {
   opacity: number = 1;
   type: number = 0;
   size: number = 1;
+  phase: number = 0;
 }

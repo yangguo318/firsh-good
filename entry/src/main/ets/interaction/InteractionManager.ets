@@ -1,4 +1,5 @@
-import { ClockStyle, DisplayMode, KoiTheme, PetalDensity, RenderEngine } from '../render/RenderEngine';
+import { ClockStyle, DisplayMode, KoiTheme, PetalDensity } from '../render/Settings';
+import { RenderEngine } from '../render/RenderEngine';
 
 export class InteractionManager {
   private engine: RenderEngine;
