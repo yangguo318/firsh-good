@@ -1,4 +1,3 @@
-import display from '@ohos.display';
 import { DisplayMode, ClockStyle, KoiTheme, PetalDensity } from './Settings';
 import { BackgroundLayer } from './layers/BackgroundLayer';
 import { WaterSurfaceLayer } from './layers/WaterSurfaceLayer';
@@ -27,14 +26,10 @@ export class RenderEngine {
   private clockLayer: ClockLayer = new ClockLayer();
   private aodLayer: AODLayer = new AODLayer();
 
-  init(ctx: CanvasRenderingContext2D): void {
+  init(ctx: CanvasRenderingContext2D, w: number, h: number): void {
     this.ctx = ctx;
-    try {
-      const disp = display.getDefaultDisplaySync();
-      this.W = disp.width;
-      this.H = disp.height;
-    } catch (e) {
-    }
+    this.W = w;
+    this.H = h;
   }
 
   getW(): number {
