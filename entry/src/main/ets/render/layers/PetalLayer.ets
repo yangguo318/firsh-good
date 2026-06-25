@@ -45,27 +45,37 @@ export class PetalLayer {
       const alpha = 0.6 + Math.sin(phase * 0.8) * 0.2;
       const colorIdx = p.type;
       const sz = w * 0.025 * p.size;
+      const rx = sz * 0.35;
+      const ry = sz * 0.2;
 
+      ctx.fillStyle = this.colors[colorIdx] + alpha.toString() + ')';
       ctx.save();
       ctx.translate(baseX, baseY);
       ctx.rotate(rot);
-      ctx.fillStyle = this.colors[colorIdx] + alpha.toString() + ')';
 
       for (let j = 0; j < 5; j++) {
         const angle = (j * Math.PI * 2) / 5;
         const px = Math.cos(angle) * sz * 0.4;
         const py = Math.sin(angle) * sz * 0.4;
-        ctx.beginPath();
-        ctx.ellipse(px, py, sz * 0.35, sz * 0.2, angle, 0, Math.PI * 2);
-        ctx.fill();
+        this.drawPetal(ctx, px, py, rx, ry, angle);
       }
+      ctx.restore();
 
       ctx.fillStyle = 'rgba(255, 200, 150, ' + (alpha * 0.8).toString() + ')';
       ctx.beginPath();
-      ctx.arc(0, 0, sz * 0.15, 0, Math.PI * 2);
+      ctx.arc(baseX, baseY, sz * 0.15, 0, Math.PI * 2);
       ctx.fill();
-
-      ctx.restore();
     }
+  }
+
+  private drawPetal(ctx: CanvasRenderingContext2D, x: number, y: number, rx: number, ry: number, rot: number): void {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rot);
+    ctx.scale(rx / ry, 1);
+    ctx.beginPath();
+    ctx.arc(0, 0, ry, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
   }
 }

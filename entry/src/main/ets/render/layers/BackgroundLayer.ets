@@ -73,6 +73,7 @@ export class BackgroundLayer {
     ctx.translate(x, y);
     ctx.rotate(rot);
     ctx.scale(rx / ry, 1);
+    ctx.beginPath();
     ctx.arc(0, 0, ry, 0, Math.PI * 2);
     ctx.restore();
   }
